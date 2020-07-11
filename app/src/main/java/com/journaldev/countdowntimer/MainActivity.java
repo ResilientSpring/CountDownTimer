@@ -1,5 +1,6 @@
 package com.journaldev.countdowntimer;
 
+import android.os.Build;
 import android.os.CountDownTimer;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,8 +57,9 @@ public class MainActivity extends AppCompatActivity {
 
             int progress = (int) (millisUntilFinished / 1000);
 
-
-            progressBar.setProgress(progressBar.getMax() - progress);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                progressBar.setProgress(progressBar.getMax() - progress, true);
+            }
         }
 
         @Override

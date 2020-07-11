@@ -1,7 +1,9 @@
 package com.journaldev.countdowntimer;
 
 import android.os.CountDownTimer;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,22 +11,18 @@ import android.widget.ProgressBar;
 
 public class MainActivity extends AppCompatActivity {
 
-
     ProgressBar progressBar;
-    Button start_timer,stop_timer;
+    Button start_timer, stop_timer;
     MyCountDownTimer myCountDownTimer;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        progressBar=(ProgressBar)findViewById(R.id.progressBar);
-        start_timer=(Button)findViewById(R.id.button);
-        stop_timer=(Button)findViewById(R.id.button2);
-
-
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        start_timer = (Button) findViewById(R.id.button);
+        stop_timer = (Button) findViewById(R.id.button2);
 
         start_timer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,10 +54,10 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onTick(long millisUntilFinished) {
 
-            int progress = (int) (millisUntilFinished/1000);
+            int progress = (int) (millisUntilFinished / 1000);
 
 
-            progressBar.setProgress(progressBar.getMax()-progress);
+            progressBar.setProgress(progressBar.getMax() - progress);
         }
 
         @Override
@@ -68,6 +66,4 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
-
 }
